@@ -1,32 +1,21 @@
 import Link from 'next/link';
 
-function Posts() {
+function Posts({ posts }) {
+	// console.log(posts);
 	return (
 		<div className="posts">
-			<Link href="/post1">
-				<a>
-					<div className="post">
-						<h2>Post 1</h2>
-						<p>
-							Lorem Ipsum is simply dummy text of the printing and typesetting
-							industry. Lorem Ipsum has been the industry standard dummy text
-							ever since the 1500s
-						</p>
-					</div>
-				</a>
-			</Link>
-			<Link href="/post2">
-				<a>
-					<div className="post">
-						<h2>Post 2</h2>
-						<p>
-							Lorem Ipsum is simply dummy text of the printing and typesetting
-							industry. Lorem Ipsum has been the industry standard dummy text
-							ever since the 1500s
-						</p>
-					</div>
-				</a>
-			</Link>
+			{posts?.map((post, idx) => (
+				<Link key={idx} href={`/${post.id}`}>
+					<a>
+						<div className="post">
+							<h2>
+								{post.id}. {post.title}
+							</h2>
+							<p>{post.body}</p>
+						</div>
+					</a>
+				</Link>
+			))}
 		</div>
 	);
 }
