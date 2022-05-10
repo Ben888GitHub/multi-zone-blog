@@ -24,8 +24,7 @@ export const getStaticProps = async ({ params }) => {
 	const post = await axios
 		.get(`https://jsonplaceholder.typicode.com/posts/${params.id}`)
 		.then((r) => r.data);
-	console.log(params.id);
-	console.log(post);
+
 	return {
 		props: { post }
 	};
