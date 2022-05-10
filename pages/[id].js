@@ -10,9 +10,9 @@ function SinglePost({ post }) {
 		<div className={styles.container}>
 			<Header />
 			<main className={styles.main}>
-				<h1 className={styles.title}>{post.title}</h1>
+				<h1 className={styles.title}>{post?.title}</h1>
 				<p>Post slug: {router.query.id}</p>
-				<p>{post.body}</p>
+				<p>{post?.body}</p>
 			</main>
 		</div>
 	);
